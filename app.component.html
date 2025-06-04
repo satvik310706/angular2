@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>🎓 Student Dashboard</h2>
+  <div class="form">
+    <input #nameInput type="text" [(ngModel)]="studentName" placeholder="Enter student name" /><br>
+    <input #gradeInput type="text" [(ngModel)]="studentGrade" placeholder="Enter grade (A/B/C)" /><br>
+    <button (click)="addStudent(nameInput, gradeInput)">Add Student</button>
+  </div>
+
+  <div class="student-list">
+    <h3>Student List</h3>
+    <ul *ngIf="!isEmpty">
+      <li *ngFor="let student of students">
+        👨‍🎓 {{ student.Name }} - Grade: {{ student.Grade }}
+        <span [ngSwitch]="student.Grade">
+          <span *ngSwitchCase="'A'"> 🟢 Excellent</span>
+          <span *ngSwitchCase="'B'"> 🟡 Good</span>
+          <span *ngSwitchCase="'C'"> 🔴 Needs Improvement</span>
+          <span *ngSwitchDefault> ❓ Unknown Grade</span>
+        </span>
+      </li>
+    </ul>
+    <li *ngIf="isEmpty">
+      No students were found.
+    </li>
+  </div>
+</div>
