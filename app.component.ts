@@ -26,7 +26,7 @@ export class AppComponent {
       this.studentName = "";
       this.studentGrade = "";
     } else {
-      this.isEmpty =true;
+      this.isEmpty = true;
     }
   }
 }
